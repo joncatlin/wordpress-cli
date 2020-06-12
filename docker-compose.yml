@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  wp-cli:
+    build:
+      context: ./wordpress/
+#    image: wordpress:php7.3-apache
+    image: localhost:5000/wp-cli
+    ports:
+      - 8090:80
+    environment:
+      WORDPRESS_DB_HOST: wpdb
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: wpdbroot
+      WORDPRESS_DB_NAME: wp
+    volumes:
+      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/wp:/var/www/html
+    networks:
+      - wp-net
+
+  wp-cli-db:
+    # build:
+    #   context: ./mysql/
+    # image: joncatlin:wp-cli-db
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: wp
+      MYSQL_ROOT_PASSWORD: wpdbroot
+    volumes:
+      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/db:/var/lib/mysql
+    networks:
+      - wp-net
+
+networks:
+  wp-net:
