@@ -7,19 +7,18 @@
 #FROM wordpress:php7.3-apache
 FROM wordpress:cli-php7.4
 
-ENV url wp-cli.dest.internal
-ENV title test website
-ENV admin-user joncatlin
-ENV admin-password password
-ENV admin-email jonc@destini.com
+ENV URL wp-cli.dest.internal
+ENV TITLE "test website"
+ENV ADMIN_USER joncatlin
+ENV ADMIN_PASSWORD password
+ENV ADMIN_EMAIL jonc@destini.com
 
-ENV rubbish delete
-
-#WORKDIR /var/www/html
+#WORKDIR /usr/local/bin
 
 #USER www-data
 
-COPY wp-startup.sh .
+COPY wp-startup.sh /usr/local/bin/
+#COPY wordpress-5.4.2.tar.gz .
 
 # RUN pwd
 

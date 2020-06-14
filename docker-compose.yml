@@ -4,12 +4,12 @@ services:
   wp-cli:
     build:
       context: ./wordpress/
-#    image: wordpress:php7.3-apache
     image: localhost:5000/wp-cli
+    # image: wordpress:5.4.2
     ports:
       - 8090:80
     environment:
-      WORDPRESS_DB_HOST: wpdb
+      WORDPRESS_DB_HOST: wp-cli-db
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: wpdbroot
       WORDPRESS_DB_NAME: wp
