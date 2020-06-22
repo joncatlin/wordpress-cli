@@ -56,10 +56,13 @@ if ! $(wp core is-installed); then
     wp theme activate hello-elementor --url=http://client_b.wpms.test
     wp theme activate layers-elementor --url=http://client_c.wpms.test
 
+    printf "\n\nSleeping for a 120s before stopping and exiting the container.\n"
+    sleep 120
 
+else
 
+    printf "\n\nWordpress is already installed, so skipping installation and exiting the container.\n"
 
 fi
 
-printf "\n\nSleeping for a 120s before stopping and exiting the container"
-sleep 120
+sleep 5555555555

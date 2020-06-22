@@ -2,7 +2,7 @@ FROM wordpress:cli-php7.4
 
 USER root
 
-# Modify the uid and gid of www-data to be consistent between this container and the one running wordpress. 
+# Modify the uid and gid of www-data to be consistent between this container and the one running wordpress server. 
 # This prevents any permission errors between the two containers as this one tries to modify files in the other one
 RUN apk --no-cache add shadow && \
     usermod -u 1000 www-data && \
@@ -24,5 +24,5 @@ ENV ADMIN_EMAIL jonc@destini.com
 
 VOLUME /var/www/html
 
-#CMD ["sleep", "555555555555555"]
+# Wait for the wordpress server container to be available before trying to install wordpress using the command line
 CMD ["../wait-for", "wp:80", "-t", "30", "--", "/var/www/wp-install.sh"]
