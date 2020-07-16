@@ -13,7 +13,8 @@ services:
       WORDPRESS_DB_PASSWORD: wpdbroot
       WORDPRESS_DB_NAME: wp
     volumes:
-      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/wp:/var/www/html
+#      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/wp:/var/www/html
+      - /data/wordpress-cli/wp:/var/www/html
     networks:
       - wp-net
 
@@ -30,7 +31,8 @@ services:
       WORDPRESS_DB_PASSWORD: wpdbroot
       WORDPRESS_DB_NAME: wp
     volumes:
-      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/wp:/var/www/html
+#      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/wp:/var/www/html
+      - /data/wordpress-cli/wp:/var/www/html
     networks:
       - wp-net
 
@@ -40,7 +42,8 @@ services:
       MYSQL_DATABASE: wp
       MYSQL_ROOT_PASSWORD: wpdbroot
     volumes:
-      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/db:/var/lib/mysql
+#      - /mnt/swarm-shared/joncatlin-development/shared-volumes/wordpress-cli/db:/var/lib/mysql
+      - /data/wordpress-cli/db:/var/lib/mysql
     networks:
       - wp-net
 

@@ -18,4 +18,8 @@ When the containers are deployed the following things happen
 ## Things to be aware of
 1.  With the base WP containers from Docker Hub the www-data user had a different UID and GID. This prevented the cli container from being able to manipulate the wordpress installation created by the other container. To solve this the solution changes the UID and GID in both containers to common values.
 1.  There is a limit to what wp-cli can do. It does not seem to be able to configure plugins and hence some plugin setup has to be finished by using the browser and the plugin UI to complete.
-
+## TODO
+1.  Determine how to install wordpress cli into the same container as wordpress. This is needed if we want to create a wordpress plugin that can create a new wp site, activate all the plugins, activate all of the themes and configure everything.
+1.  Create a WP plugin that uses WPCLI to create a new wp site, activate all the plugins, activate all of the themes and configure everything.
+1.  Register the new plugin on the main site so that an admin can login to the main site and use it to create all the other sites.
+1.  Investigate if WP CLI is needed or if there is an API tht can be used to create sites, activate plugins etc. 
